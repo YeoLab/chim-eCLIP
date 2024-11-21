@@ -9,6 +9,29 @@ Processing pipeline as first described in Moore et al. 2015, then later modified
 - Chimeric sequences are filtered for a min length of 18 and mapped to genome
 - Dedup UMIs
 
+# Outputs:
+- umi-extracted reads: `.umi.r1.fq.gz`
+- adapter-trimmed fastq/fasta:
+    - `.umi.r1.fqTrTr.sorted.fa.gz`
+    - `.umi.r1.fqTrTr.sorted.fq.gz`
+- unique reads only: `.umi.r1.fqTrTr.sorted.collapsed.fa.gz`
+- miR-mapped output from bowtie: `.umi.r1.fqTrTr.sorted.collapsed.tsv`
+- priority-driven filtered miR-mapped output: `.umi.r1.fqTrTr.sorted.collapsed.filtered.tsv`
+- re-align all reads -> miR-mapped output: `.umi.r1.fqTrTr.sorted.collapsed.filtered.metrics`
+- fasta-file of chimeric candidates based on valid miR-mapped reads: `.umi.r1.fqTrTr.sorted.collapsed.filtered.chimeric_candidates.fa.gz`
+- chimeric and non-chimeric repeat-mapped reads ("eclip" reads not captured in this version):
+    - `.umi.r1.fqTrTr.sorted.repeat-mapped.bam`
+- chimeric and non-chimeric ("eclip") mapped reads:
+    - `.umi.r1.fqTrTr.sorted.genome-mappedSoSo.bam`
+    - `.umi.r1.fqTrTr.sorted.eclip.genome-mappedSoSo.bam`
+- pcr-deduped mapped reads:
+    - `.umi.r1.fqTrTr.sorted.genome-mappedSoSo.rmDupSo.bam`
+    - `.umi.r1.fqTrTr.sorted.eclip.genome-mappedSoSo.rmDupSo.bam`
+- normalized bigwig densities (positive and negative signal):
+    - `.umi.r1.fqTrTr.sorted.genome-mappedSoSo.rmDupSo.norm.pos.bw`
+    - `.umi.r1.fqTrTr.sorted.genome-mappedSoSo.rmDupSo.norm.neg.bw`
+    - `.umi.r1.fqTrTr.sorted.eclip.genome-mappedSoSo.rmDupSo.norm.pos.bw`
+    - `.umi.r1.fqTrTr.sorted.eclip.genome-mappedSoSo.rmDupSo.norm.neg.bw`
 # Workflow in commandline form for TOTAL chimeric eCLIP:
 
 ### EXTRACT UMI AND TRIM 
